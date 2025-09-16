@@ -1,0 +1,32 @@
+def rec_bubble(arr,n):
+    if n == 1:
+        return arr
+    # for i in range (n-1,0,-1):
+    didswap = 0
+    for j in range(n-1):
+        if arr[j] > arr[j+1]:
+            arr[j],arr[j+1] = arr[j+1],arr[j]
+            didswap = 1
+    if didswap == 0:
+        return arr
+
+    return rec_bubble(arr,n-1)
+def rec_insertion(arr, n):
+    if n == 1:
+        return arr
+
+    # Recursively sort the first n-1 elements
+    rec_insertion(arr, n - 1)
+
+    # Insert the n-th element into the sorted part
+    j = n - 2
+    while j >= 0 and arr[j] > arr[j+1]:
+        arr[j + 1],arr[j] = arr[j],arr[j + 1]
+        j-=1
+    return arr
+
+        
+arr = [543,4,6,42,2]
+n = 5
+print(rec_insertion(arr,n))
+print(rec_bubble(arr,n))
