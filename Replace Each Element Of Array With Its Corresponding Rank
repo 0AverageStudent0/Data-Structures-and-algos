@@ -1,0 +1,21 @@
+from typing import List
+import heapq
+
+def replaceWithRank(arr: List[int],n : int) -> List[int]:
+    heap = []
+    res = [0]*n
+    rank = 1
+    prev_val = 0
+
+    for i,val in enumerate(arr):
+        heapq.heappush(heap,(val,i))
+    
+    while heap:
+        val, i = heapq.heappop(heap)
+        if val != prev_val:
+            res[i] = rank
+            rank += 1
+            prev_val = val
+        else:
+            res[i] = rank-1
+    return res
