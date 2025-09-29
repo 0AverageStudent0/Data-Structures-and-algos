@@ -1,0 +1,14 @@
+class Solution: n^3 solution 
+    def largestTriangleArea(self, points: List[List[int]]) -> float:
+        ans = 0.0
+        n = len(points)
+        for i in range(n):
+            for j in range(i+1,n):
+                for k in range(j+1,n):
+                    P = points[i]
+                    Q = points[j]
+                    R = points[k]
+
+                    area = 0.5 * abs(P[0] * (Q[1]-R[1]) + Q[0] * (R[1]-P[1]) + R[0] * (P[1]-Q[1]))
+                    ans = max(ans,area)
+        return ans
