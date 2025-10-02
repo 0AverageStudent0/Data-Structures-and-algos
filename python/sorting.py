@@ -80,7 +80,7 @@ def parti(arr,low,high):
     return j
 
 
-arr = [4,2,5,1,3]
+arr = [6,5,4,2,5,1,3]
 # print(selection(arr))
 # print(bubble(arr))
 # print(insertion(arr))
